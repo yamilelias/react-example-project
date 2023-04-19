@@ -3,12 +3,17 @@ import { Inter } from 'next/font/google'
 
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { useState } from 'react'
+import { CounterContext } from '@/context/CounterProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [ counter, setCounter ] = useState(0)
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <CounterContext.Provider value={counter}>
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Header>
       <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
           <a
@@ -39,9 +44,11 @@ export default function Home() {
           height={37}
           priority
         />
+        <button onClick={() => setCounter(counter + 1)}>Agregar al counter</button>
       </div>
 
       <Footer inter={inter} />
     </main>
+    </CounterContext.Provider>
   )
 }

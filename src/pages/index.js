@@ -44,7 +44,6 @@ export default function Home() {
           height={37}
           priority
         />
-        <button onClick={() => setCounter(counter + 1)}>Agregar al counter</button>
       </div>
 
       <Footer inter={inter} />

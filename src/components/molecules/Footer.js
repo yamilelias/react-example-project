@@ -1,7 +1,7 @@
-import { Card } from './Card'
+import { Card } from '../atoms/Card'
 
 export const Footer = ({ inter }) => (
-    <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
+    <div data-testid="footer" className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
         <Card
             inter={inter}
             title="Deploy A"

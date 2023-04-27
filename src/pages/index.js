@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 
-import { Header } from '@/components/Header'
+import { Header } from '@/components/molecules/Header'
 import { Footer } from '@/components/molecules/Footer'
 import { useState } from 'react'
 import { CounterContext } from '@/context/CounterProvider'
+import AuthLayout from '@/layout/AuthLayout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -51,3 +52,7 @@ export default function Home() {
     </CounterContext.Provider>
   )
 }
+
+Home.getLayout = (page) => (
+  <AuthLayout>{page}</AuthLayout>
+)
